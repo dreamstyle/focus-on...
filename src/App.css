@@ -11,9 +11,12 @@
 .nav {
   display: flex;
   justify-content: space-between;
-  padding-right: 40px;
   margin-bottom: 32px;
   font-size: 13px;
+}
+
+.theme {
+  padding-right: 40px;
 }
 
 .btn-nav:hover {
@@ -171,7 +174,7 @@
 }
 
 .btn-footer {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .copyright {
@@ -184,7 +187,12 @@
     position: relative;
     min-height: 100vh;
     min-height: var(--viewport-height);
+    padding: 16px 32px 100px;
     padding-bottom: 100px;
+  }
+
+  .theme {
+    padding-right: 0;
   }
 
   .days {

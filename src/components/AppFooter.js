@@ -12,7 +12,7 @@ function AppFooter(props) {
         </button>
         <span>/</span>
         <a href="mailto:natetpe+focuson@gmail.com">
-          <button className="btn-footer">CONTACT ME</button>
+          <button className="btn-footer">CONTACT</button>
         </a>
       </div>
       <p className="copyright">© 2020 Focus on...</p>
