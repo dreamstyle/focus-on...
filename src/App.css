@@ -1,38 +1,190 @@
-.App {
-  text-align: center;
+.app-container {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 16px 32px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* 
+ * Nav 
+ */
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 40px;
+  margin-bottom: 32px;
+  font-size: 13px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.btn-nav:hover {
+  color: #999;
+  transition: color 0.2s ease-out;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.btn-mode {
+  color: var(--font-color);
+  text-decoration: none;
+}
+
+.btn-theme:first-of-type::after {
+  content: "/";
+  margin-left: 6px;
+  margin-right: -4px;
+}
+
+/* 
+ * Todo
+ */
+
+.rest-quote {
+  font-size: 36px;
+}
+
+.days {
+  display: flex;
+}
+
+.day {
+  flex: 1;
+}
+
+.day.today {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+}
+
+.day.today h1 {
+  text-align: left;
+}
+
+.day-list {
+  display: flex;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.add-task-form {
+  display: flex;
+  padding-left: 20px;
+}
+
+.task:hover .btn-remove-task,
+.task:hover .btn-add-task {
+  opacity: 1;
+}
+
+.btn-add-task {
+  font-size: 12px;
+}
+
+.btn-add-task,
+.btn-remove-task {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.checkbox {
+  display: none;
+  /* clip-path: polygon(0 0); */
+}
+
+.label {
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.label::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 5px;
+  width: 8px;
+  height: 15px;
+  border: 1px solid #ccc;
+  border-width: 0 2px 2px 0;
+  opacity: 0;
+  transform: rotate(0);
+  transition: all 0.2s ease-in;
+}
+
+.task-title {
+  appearance: none;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-size: 14px;
+  width: 180px;
+  line-height: 1.5;
+}
+
+.task-title:focus {
+  outline: none;
+}
+
+.checkbox:checked ~ .task-title {
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+.checkbox:checked ~ .label {
+  border-color: transparent;
+}
+
+.checkbox:checked ~ .label::after {
+  opacity: 1;
+  transform: rotate(45deg);
+}
+
+/*
+ * Footer
+ */
+
+.footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  text-align: center;
+}
+
+.btn-group {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-footer {
+  font-size: 14px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.copyright {
+  text-align: center;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 414px) {
+  .app-container {
+    position: relative;
+    padding-bottom: 100px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .days {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .days.week {
+    align-items: center;
   }
 }

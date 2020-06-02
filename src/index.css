@@ -1,13 +1,63 @@
+:root {
+  --bg-color: white;
+  --font-color: black;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body.dark {
+  background-color: black;
+  color: white;
+}
+
+body.dark * {
+  color: white;
+}
+
+body.dark input {
+  color: black;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+}
+
+body {
+  font-family: "Noto Serif TC", serif, sans-serif;
+}
+
+button {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--font-color);
+  outline: none;
+  cursor: pointer;
+}
+
+a:hover,
+button:hover {
+  color: #666;
+}
+
+ul {
+  padding-left: 0px;
 }
