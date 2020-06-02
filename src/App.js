@@ -13,11 +13,12 @@ class App extends React.Component {
       wed: [],
       thu: [],
       fri: [],
+      sat: [],
+      sun: [],
     },
     themeOptions: ["light", "dark"],
     theme: "light",
   };
-
   loadSampleTodos = () => {
     this.setState({ days: sampleTodos });
   };
@@ -32,7 +33,7 @@ class App extends React.Component {
     const days = Object.keys(this.state.days);
     const now = new Date();
     const today = days[now.getDay() - 1];
-    if (today > 5) return;
+    if (["sat", "sun"].includes(today)) return;
     this.state.days[today].some((task) => {
       if (task && !task.isFinish) {
         document.title = `Focus on... ${task.title}`;
@@ -66,6 +67,8 @@ class App extends React.Component {
         wed: [],
         thu: [],
         fri: [],
+        sat: [],
+        sun: [],
       },
     });
   };
@@ -115,6 +118,9 @@ class App extends React.Component {
     if (localStorage.getItem("theme")) {
       this.switchTheme(localStorage.getItem("theme"));
     }
+    // 3. Detect viewport height
+    const root = document.documentElement;
+    root.style.setProperty("--viewport-height", `${window.innerHeight}px`);
   }
 
   componentDidUpdate() {
@@ -125,9 +131,8 @@ class App extends React.Component {
   render() {
     const days = Object.keys(this.state.days);
     const now = new Date();
-    // const today = days[now.getDay() - 1];
-    const today = 6;
-    // const weekend = today > 5;
+    const today = days[now.getDay() - 1];
+    const weekend = ["sat", "sun"].includes(today);
 
     return (
       <BrowserRouter>
@@ -166,11 +171,12 @@ class App extends React.Component {
                 ))}
               </section>
             </Route>
-
-            {
-              /* TODAY LIST ONLY SHOWN ON WEEKDAY */
-              today > 6 ? (
-                <Route path="/today">
+            <Route path="/today">
+              {
+                /* TODAY LIST ONLY SHOWN ON WEEKDAY */
+                weekend ? (
+                  <h1 className="weekend-headline">Learn to rest, not quit.</h1>
+                ) : (
                   <List
                     key={today}
                     index={today}
@@ -180,11 +186,9 @@ class App extends React.Component {
                     addTodo={this.addTodo}
                     deleteTodo={this.deleteTodo}
                   />
-                </Route>
-              ) : (
-                <h1 className="rest-quote">Learn to rest, not quit.</h1>
-              )
-            }
+                )
+              }
+            </Route>
           </Switch>
           <AppFooter
             reset={this.reset}

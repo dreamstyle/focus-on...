@@ -73,7 +73,8 @@ class List extends React.Component {
   };
 
   render() {
-    return (
+    const weekend = ["sat", "sun"].includes(this.props.index);
+    return weekend ? null : (
       <section className={this.componentClassName}>
         <h1>
           {this.props.mode === "week"

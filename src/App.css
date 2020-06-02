@@ -11,9 +11,12 @@
 .nav {
   display: flex;
   justify-content: space-between;
-  padding-right: 40px;
   margin-bottom: 32px;
   font-size: 13px;
+}
+
+.theme {
+  padding-right: 40px;
 }
 
 .btn-nav:hover {
@@ -36,8 +39,14 @@
  * Todo
  */
 
-.rest-quote {
+.weekend-headline {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  margin: 0;
   font-size: 36px;
+  text-align: center;
 }
 
 .days {
@@ -165,7 +174,7 @@
 }
 
 .btn-footer {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .copyright {
@@ -176,7 +185,14 @@
 @media screen and (max-width: 414px) {
   .app-container {
     position: relative;
+    min-height: 100vh;
+    min-height: var(--viewport-height);
+    padding: 16px 32px 100px;
     padding-bottom: 100px;
+  }
+
+  .theme {
+    padding-right: 0;
   }
 
   .days {
@@ -186,5 +202,10 @@
 
   .days.week {
     align-items: center;
+  }
+
+  .weekend-headline {
+    text-align: left;
+    text-transform: uppercase;
   }
 }

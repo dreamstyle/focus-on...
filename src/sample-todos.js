@@ -32,6 +32,8 @@ const samepleTodos = {
       isFinish: false,
     },
   ],
+  sat: [],
+  sun: [],
 };
 
 export default samepleTodos;
