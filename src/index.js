@@ -3,7 +3,10 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import LogRocket from "logrocket";
 import normalize from "normalize.css";
+
+LogRocket.init("gamipv/focus-on");
 
 ReactDOM.render(
   <React.StrictMode>
