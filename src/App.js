@@ -8,13 +8,13 @@ import AppFooter from "./components/AppFooter";
 class App extends React.Component {
   state = {
     days: {
+      sun: [],
       mon: [],
       tue: [],
       wed: [],
       thu: [],
       fri: [],
       sat: [],
-      sun: [],
     },
     themeOptions: ["light", "dark"],
     theme: "light",
@@ -32,7 +32,7 @@ class App extends React.Component {
   changeTitle = () => {
     const days = Object.keys(this.state.days);
     const now = new Date();
-    const today = days[now.getDay() - 1];
+    const today = days[now.getDay()];
     if (["sat", "sun"].includes(today)) return;
     this.state.days[today].some((task) => {
       if (task && !task.isFinish) {
@@ -62,13 +62,13 @@ class App extends React.Component {
   reset = () => {
     this.setState({
       days: {
+        sun: [],
         mon: [],
         tue: [],
         wed: [],
         thu: [],
         fri: [],
         sat: [],
-        sun: [],
       },
     });
   };
@@ -131,7 +131,7 @@ class App extends React.Component {
   render() {
     const days = Object.keys(this.state.days);
     const now = new Date();
-    const today = days[now.getDay() - 1];
+    const today = days[now.getDay()];
     const weekend = ["sat", "sun"].includes(today);
 
     return (
