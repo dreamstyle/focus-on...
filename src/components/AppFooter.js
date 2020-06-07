@@ -11,7 +11,7 @@ function AppFooter(props) {
           LOAD SAMPLES
         </button>
         <span>/</span>
-        <a href="mailto:natetpe+focuson@gmail.com">
+        <a href="mailto:natetpe@gmail.com">
           <button className="btn-footer">CONTACT</button>
         </a>
       </div>
