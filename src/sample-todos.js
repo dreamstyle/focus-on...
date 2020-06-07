@@ -8,6 +8,10 @@ const samepleTodos = {
   ],
   tue: [
     {
+      title: "準備專案會議",
+      isFinish: false,
+    },
+    {
       title: "觀看 TED Talk",
       isFinish: false,
     },
