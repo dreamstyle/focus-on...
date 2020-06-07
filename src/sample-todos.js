@@ -1,4 +1,5 @@
 const samepleTodos = {
+  sun: [],
   mon: [
     {
       title: "每週工作規劃",
@@ -33,7 +34,6 @@ const samepleTodos = {
     },
   ],
   sat: [],
-  sun: [],
 };
 
 export default samepleTodos;
