@@ -87,7 +87,7 @@ class List extends React.Component {
             <form className="add-task-form" onSubmit={this.handleSubmit}>
               <input type="text" className="task-title" ref={this.inputRef} />
               <button type="submit" className="btn-add-task">
-                + NEW
+                +NEW
               </button>
             </form>
           </li>
